@@ -1,4 +1,4 @@
-%%%%Bolas loading TTL protocol%%%%%
+%%%%Bolas loading TTL protocol%%%%% Ver2.1
 clear all;
 close all;
 
