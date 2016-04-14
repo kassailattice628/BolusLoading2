@@ -40,7 +40,8 @@ T.TimerFcn = @TimerFCN;
             dev = daq.getDevices;
             % DIO setting
             dio = daq.createSession(dev.Vendor.ID);
-            addDigitalChannel(sTrig, dev.ID, 'port2/line4', 'OutputOnly');%Ctr0 out ‚ðŽg‚¤
+            addDigitalChannel(dio, dev.ID, 'port2/line4', 'OutputOnly');%Ctr0 out ‚ðŽg‚¤
+            startForeground(dio)
             outputSingleScan(dio,0); %reset trigger signals at Low
         else
             Testmode = 1;
@@ -78,7 +79,6 @@ T.TimerFcn = @TimerFCN;
         end
         putdio(dio, 0)
         disp('TTL_OFF');
-        set(ui.onpulse,'value',0);
         set(ui.ongate,'value',0);
         set(ui.onloop, 'string','Loop-off','value',0, 'BackGroundColor','w');
     end
